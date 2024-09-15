@@ -17,7 +17,7 @@ def opção_menu():
 
 #funções
 def adicionar():
-    print(30*"-")
+    
     titulo=input("digite o titulo do filme:")
     ano=input("digite o ano do filme :")
     genero=input("digite o genero do filme :")
@@ -58,19 +58,23 @@ def buscar():
 
 
 def atualizar():
+    print(30*"-")
     titulo = str(input("digite o filme que deseja atualizar: "))
-    ano = int(input("digite o filme que deseja atualizar: "))
-    genero = str(input("digite o filme que deseja atualizar: "))
-    diretor = str(input("digite o filme que deseja atualizar: "))
+    ano = int(input("digite o ano do filme que deseja atualizar: "))
+    genero = str(input("digite o gênero do filme que deseja atualizar: "))
+    diretor = str(input("digite o diretor filme que deseja atualizar: "))
     filme = [titulo, ano, genero, diretor]
+    if filme in armazenamento_de_filmes:
 
-    if ano > 2024:
-        print("ano inválido")
+        if ano > 2024:
+            print("ano inválido")
 
-    armazenamento_de_filmes = armazenamento_de_filmes.append(filme)
-    print("filme atualizado com sucesso!")
+        armazenamento_de_filmes = armazenamento_de_filmes.append(filme)
+        print("filme atualizado com sucesso!")
 
-    opção_menu()
+    else:
+        print("filme não existente")
+        opção_menu()
 
     
     
@@ -82,18 +86,22 @@ def atualizar():
 
 
 def remover():
-    global armazenamento_de_filmes
-    
-    
-    for filme in armazenamento_de_filmes:
-        filme_removido = str(input("digite o filme que deseja remover:"))
-        if filme_removido in armazenamento_de_filmes:
-           armazenamento_de_filmes = armazenamento_de_filmes.remove(filme_removido)
+    nova_lista = armazenamento_de_filmes.copy()
+    for filme in nova_lista:
+        filme_removido = str(input("digite o filme que deseja remover: " )).lower()
+        for filme in nova_lista:
+                if filme[0] == filme_removido:
+                    nova_lista = nova_lista.remove(filme[0])
+                return nova_lista
         else:
             print("filme não existente")
-            opção_menu()
+            
+        
+     
+    
 
-    return print(armazenamento_de_filmes) 
+
+    
         
 
             
@@ -107,7 +115,10 @@ def remover():
 
 #lista
 
+
 armazenamento_de_filmes=[]
+
+
 while True:
     p = opção_menu()
     
