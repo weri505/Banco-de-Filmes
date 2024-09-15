@@ -94,7 +94,7 @@ def remover():
     print(30*"-")
     titulo = input(" digite o filme que deseja remover: ")
     for filme in armazenamento_de_filmes:
-        if filme[0] == titulo:
+        if filme[0].lower() == titulo.lower():
             armazenamento_de_filmes.pop(0)
             print(f"Filme {titulo} removido com sucesso")
             return
