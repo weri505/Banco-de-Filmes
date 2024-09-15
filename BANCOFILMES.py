@@ -18,7 +18,7 @@ def opção_menu():
 #funções
 def adicionar():
     
-    titulo=input("digite o titulo do filme:")
+    titulo=input("digite o titulo do filme:").lower()
     ano=input("digite o ano do filme :")
     genero=input("digite o genero do filme :")
     diretor=input("digite o nome do diretor :")
@@ -59,7 +59,7 @@ def buscar():
 
 def atualizar():
     print(30*"-")
-    titulo = input("digite o filme que deseja atualizar: ")
+    titulo = input("digite o filme que deseja atualizar: ").lower()
     for filme in armazenamento_de_filmes:
         if filme[0].lower() == titulo.lower():
             novo_titulo = input("digite o novo título do filme: ")
@@ -92,7 +92,7 @@ def atualizar():
 
 def remover():
     print(30*"-")
-    titulo = input(" digite o filme que deseja remover: ")
+    titulo = input(" digite o filme que deseja remover: ").lower()
     for filme in armazenamento_de_filmes:
         if filme[0].lower() == titulo.lower():
             armazenamento_de_filmes.pop(0)
