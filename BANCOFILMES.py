@@ -58,23 +58,27 @@ def buscar():
 
 
 def atualizar():
-    print(30*"-")
-    titulo = str(input("digite o filme que deseja atualizar: "))
-    ano = int(input("digite o ano do filme que deseja atualizar: "))
-    genero = str(input("digite o gênero do filme que deseja atualizar: "))
-    diretor = str(input("digite o diretor filme que deseja atualizar: "))
-    filme = [titulo, ano, genero, diretor]
-    if filme in armazenamento_de_filmes:
+    titulo = input("digite o filme que deseja atualizar: ")
+    for filme in armazenamento_de_filmes:
+        if filme[0].lower() == titulo.lower():
+            novo_titulo = input("digite o novo título do filme: ")
+            novo_ano = input("digite o novo ano do filme: ")
+            novo_genero = input("digite o novo gênero do filme: ")
+            novo_diretor = input("digite o novo diretor do filme: ")
 
-        if ano > 2024:
-            print("ano inválido")
+            filme[0] = novo_titulo
+            filme[1] = novo_ano
+            filme[2] = novo_genero
+            filme[3] = novo_diretor
 
-        armazenamento_de_filmes = armazenamento_de_filmes.append(filme)
-        print("filme atualizado com sucesso!")
+            print(f"Filme {titulo} atualizado com sucesso")
+            return
 
-    else:
-        print("filme não existente")
-        opção_menu()
+    print("Filme não encontrado")
+                  
+    
+
+       
 
     
     
