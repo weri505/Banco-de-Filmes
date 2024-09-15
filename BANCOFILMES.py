@@ -58,6 +58,7 @@ def buscar():
 
 
 def atualizar():
+    print(30*"-")
     titulo = input("digite o filme que deseja atualizar: ")
     for filme in armazenamento_de_filmes:
         if filme[0].lower() == titulo.lower():
@@ -90,15 +91,18 @@ def atualizar():
 
 
 def remover():
-    nova_lista = armazenamento_de_filmes.copy()
-    for filme in nova_lista:
-        filme_removido = str(input("digite o filme que deseja remover: " )).lower()
-        for filme in nova_lista:
-                if filme[0] == filme_removido:
-                    nova_lista = nova_lista.remove(filme[0])
-                return nova_lista
-        else:
-            print("filme não existente")
+    print(30*"-")
+    titulo = input(" digite o filme que deseja remover: ")
+    for filme in armazenamento_de_filmes:
+        if filme[0] == titulo:
+            armazenamento_de_filmes.pop(0)
+            print(f"Filme {titulo} removido com sucesso")
+            return
+        
+    print("Filme não existente")
+            
+            
+
             
         
      
