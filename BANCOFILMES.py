@@ -48,13 +48,7 @@ def listar():
 
 
 def buscar():
-    print(30*"-")
-    titulo = input("digite o nome do filme que deseja buscar: ")
-    for filme in armazenamento_de_filmes:
-        if filme == titulo:
-            print("filme {titulo} encontrado com sucesso")
-    print("filme não encontrado")
-
+    pass
     
     
     
